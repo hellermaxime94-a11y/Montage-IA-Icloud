@@ -34,7 +34,7 @@
     "bigFont": "Archivo Black",
     "bigWeight": 400,
     "keyMin": 99,
-    "stagger": 0,
+    "stagger": 40,
     "smallW": 760,
     "fullY": 1400,
     "zoomDrop": 300
@@ -70,7 +70,9 @@
     "3 a 5 mots violet clair par video, pas plus",
     "Aucun blanc de plus de 0,1 s",
     "Bruitages: 3 a 5 par video, seulement sur les mots violet clair et les preuves",
-    "Pas de musique: la musique est ajoutee dans TikTok"
+    "Pas de musique: la musique est ajoutee dans TikTok",
+    "Mots violets des cartons: contour fin (blanc sur fond sombre, anthracite sur fond clair)",
+    "Sous-titres face camera: alterner haut (y 450, plans larges) et bas (y 1390, plans serres) a chaque phrase, dans la zone sure TikTok y 220-1400"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {

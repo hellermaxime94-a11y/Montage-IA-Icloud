@@ -39,6 +39,10 @@ window.SPEC = {
   captions: {
     replace: [],
     emph: ['ennemis', 'anormal.', 'secourisme,', 'BAFA,', 'réfléchir.', 'riche', 'accompagnement', 'MRR.', 'revenu', 'prochaine.'],
+    // position alternates on the sentence cuts: up top (above the head) on the wide shots, on the chest on the tight ones.
+    // TikTok safe box: y 220 to 1400, nothing under the right-hand buttons.
+    yKeys: [[0, 1390], [7.0, 520], [11.4, 1390], [17.8, 520], [21.0, 1360], [26.55, 520], [31.8, 1390], [35.6, 520],
+            [45.55, 1370], [50.3, 520], [57.1, 1390], [64.35, 520], [67.65, 1380], [77.9, 520]],
     hide: [[3.50, 6.95], [23.75, 26.5], [43.30, 45.55], [58.45, 61.40], [75.75, 77.90]],
   },
 };
