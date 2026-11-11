@@ -72,7 +72,8 @@
     "Bruitages: 3 a 5 par video, seulement sur les mots violet clair et les preuves",
     "Pas de musique: la musique est ajoutee dans TikTok",
     "Mots violets des cartons: contour fin (blanc sur fond sombre, anthracite sur fond clair)",
-    "Sous-titres face camera: alterner haut (y 450, plans larges) et bas (y 1390, plans serres) a chaque phrase, dans la zone sure TikTok y 220-1400"
+    "Sous-titres face camera: alterner haut (y 450, plans larges) et bas (y 1390, plans serres) a chaque phrase, dans la zone sure TikTok y 220-1400",
+    "Mots violets des cartons: ombre portee violet fonce + ombre douce sous le contour"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {
