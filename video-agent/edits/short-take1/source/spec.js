@@ -19,8 +19,7 @@ window.SPEC = {
     etudes: { src: 'assets/images/etudes.jpg', width: 1080 },
     // the creator's own images (rounded card on a blurred background, or full frame on black)
     digitalLaptop: { src: 'assets/images/digital-laptop.jpg', width: 1080 }, ebooks: { src: 'assets/images/ebooks.jpg', width: 1080 },
-    vizion: { src: 'assets/images/vizion.jpg', width: 1080 }, marketingDigital: { src: 'assets/images/marketing-digital.jpg', width: 1080 },
-    guide: { src: 'assets/images/guide.jpg', width: 1080 },
+    marketingDigital: { src: 'assets/images/marketing-digital.jpg', width: 1080 },
   },
   cam: { crop: [0, 0, 720, 1280], eyes: [349, 767] },
 
@@ -63,9 +62,7 @@ window.SPEC = {
     { media: 'cartes', from: 33.30, to: 34.50, zoom: .06, hard: true },
     { media: 'ebooks', from: 39.90, to: 41.60, zoom: .05, hard: true },
     { media: 'luxe', from: 46.00, to: 47.30, zoom: .06, hard: true },
-    { media: 'vizion', from: 50.50, to: 52.40, zoom: .04, hard: true },
     { media: 'marketingDigital', from: 65.70, to: 66.90, zoom: .05, hard: true },
-    { media: 'guide', from: 68.31, to: 69.95, zoom: .04, hard: true },
     { media: 'etudes', from: 72.90, to: 74.00, zoom: .06, hard: true },
   ],
 
@@ -74,51 +71,59 @@ window.SPEC = {
 
   music: { mute: true },   // the creator adds a TikTok sound on the app
 
-  // engine sounds: [t, name, LINEAR gain] (not dB). Files: gain in dB under the voice. Sounds rotate so no two moves
-  // in a row sound the same; assets/sfx/ holds a small pack synthesized for this style (whooshes, swipe, riser,
-  // shutter, soft boom, bubble).
+  // Viral-style kit, synthesized for this style (assets/sfx): sub-drop, ding, sparkle, cash, glitch, scratch, typewriter,
+  // notif, whoosh-fast, swoosh-hit, snap, flash + whooshes, riser, boom-soft, bubble. Picked by meaning (money = cash,
+  // digital = glitch / notif, a card = swoosh-hit / scratch / glitch) and never the same sound twice in a row.
   sfx: {
     swish: 0, accents: 0,
-    extra: [
-      [17.753, 'tom', 0.78], [64.308, 'tom', 0.78], [43.17, 'tom', 0.78],              // cuts (with the files below)
-      [19.2, 'swish', 0.29],                                                      // smooth zoom
-      [16.1, 'thud', 0.65], [71.6, 'thud', 0.65],                                    // punches
-      [16.17, 'pop', 0.23], [51.37, 'pop', 0.23], [71.70, 'pop', 0.23],             // big caption words
-      [4.40, 'thud', 0.65], [4.40, 'pop', 0.23], [25.31, 'thud', 0.65], [25.31, 'pop', 0.23],   // violet words
-      [43.71, 'thud', 0.65], [43.71, 'pop', 0.23], [60.71, 'thud', 0.65], [60.71, 'pop', 0.23],
-    ],
+    extra: [[4.40, 'thud', .5], [25.31, 'thud', .5], [43.71, 'thud', .5], [60.71, 'thud', .5]],   // weight under the violet words
     files: [
-      // hook + last card
-      { at: 1.25, src: 'assets/sfx/impact-boom.mp3', peak: true, gain: -2 },
-      { at: 77.17, src: 'assets/sfx/impact-boom.mp3', peak: true, gain: -2 },
-      // cards in
-      { at: 3.50, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -3 }, { at: 23.75, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -4 },
-      { at: 43.30, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -4 }, { at: 58.45, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -4 },
-      { at: 75.75, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -3 },
-      // cuts
-      { at: 26.602, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -1 }, { at: 48.286, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -1 },
-      { at: 57.11, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 },
-      // smooth zooms in / out
-      { at: 2.2, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -2 },
-      { at: 9.0, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
-      { endAt: 16.1, src: 'assets/sfx/riser-short.mp3', gain: -5 },
-      { at: 38.0, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 },
-      { at: 49.3, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
-      { at: 53.9, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -2 },
-      { at: 74.1, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -2 },
-      { endAt: 79.0, src: 'assets/sfx/riser-short.mp3', gain: -4 },
-      // punch on "réfléchir"
-      { at: 34.7, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -0 },
-      // photos in: rotate shutter / swipe / whoosh
-      { at: 10.35, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 }, { at: 11.40, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 },
-      { at: 28.00, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
-      { at: 33.30, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 }, { at: 39.90, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 },
-      { at: 46.00, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 }, { at: 50.50, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 },
-      { at: 65.70, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 }, { at: 72.90, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
-      { at: 68.31, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 },
-      // big caption words, second voice
-      { at: 19.27, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 }, { at: 46.49, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 },
-      { at: 66.93, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 }, { at: 79.00, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 },
+      { at: 1.25, src: 'assets/sfx/sub-drop.mp3', peak: true, gain: -2 },
+      { at: 2.2, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -3 },
+      { at: 3.5, src: 'assets/sfx/swoosh-hit.mp3', peak: true, gain: -3 },
+      { at: 4.4, src: 'assets/sfx/cash.mp3', peak: true, gain: -3 },
+      { at: 6.05, src: 'assets/sfx/whoosh-fast.mp3', peak: true, gain: -3 },
+      { at: 9.0, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -4 },
+      { at: 10.35, src: 'assets/sfx/ding.mp3', peak: true, gain: -4 },
+      { at: 11.4, src: 'assets/sfx/typewriter.mp3', peak: true, gain: -3 },
+      { endAt: 16.1, src: 'assets/sfx/riser-short.mp3', gain: -6 },
+      { at: 16.1, src: 'assets/sfx/sub-drop.mp3', peak: true, gain: -3 },
+      { at: 17.753, src: 'assets/sfx/glitch.mp3', peak: true, gain: -5 },
+      { at: 19.2, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -2 },
+      { at: 19.27, src: 'assets/sfx/bubble.mp3', peak: true, gain: -4 },
+      { at: 23.75, src: 'assets/sfx/scratch.mp3', peak: true, gain: -4 },
+      { at: 25.31, src: 'assets/sfx/cash.mp3', peak: true, gain: -2 },
+      { at: 26.602, src: 'assets/sfx/whoosh-fast.mp3', peak: true, gain: -3 },
+      { at: 28.0, src: 'assets/sfx/notif.mp3', peak: true, gain: -4 },
+      { at: 33.3, src: 'assets/sfx/flash.mp3', peak: true, gain: -4 },
+      { at: 34.7, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -1 },
+      { at: 38.0, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -4 },
+      { at: 39.9, src: 'assets/sfx/snap.mp3', peak: true, gain: -3 },
+      { at: 43.3, src: 'assets/sfx/glitch.mp3', peak: true, gain: -4 },
+      { at: 43.71, src: 'assets/sfx/sparkle.mp3', peak: true, gain: -3 },
+      { at: 45.55, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -2 },
+      { at: 46.0, src: 'assets/sfx/cash.mp3', peak: true, gain: -3 },
+      { at: 48.286, src: 'assets/sfx/snap.mp3', peak: true, gain: -2 },
+      { at: 49.3, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -4 },
+      { endAt: 51.37, src: 'assets/sfx/riser-short.mp3', gain: -6 },
+      { at: 51.37, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -3 },
+      { at: 53.9, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -3 },
+      { at: 57.11, src: 'assets/sfx/glitch.mp3', peak: true, gain: -5 },
+      { at: 58.45, src: 'assets/sfx/swoosh-hit.mp3', peak: true, gain: -3 },
+      { at: 60.71, src: 'assets/sfx/ding.mp3', peak: true, gain: -3 },
+      { at: 61.4, src: 'assets/sfx/whoosh-fast.mp3', peak: true, gain: -3 },
+      { at: 64.308, src: 'assets/sfx/snap.mp3', peak: true, gain: -2 },
+      { at: 65.7, src: 'assets/sfx/glitch.mp3', peak: true, gain: -4 },
+      { at: 66.93, src: 'assets/sfx/sub-drop.mp3', peak: true, gain: -3 },
+      { at: 71.6, src: 'assets/sfx/cash.mp3', peak: true, gain: -2 },
+      { at: 72.9, src: 'assets/sfx/notif.mp3', peak: true, gain: -4 },
+      { at: 74.1, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -3 },
+      { at: 75.75, src: 'assets/sfx/scratch.mp3', peak: true, gain: -4 },
+      { at: 77.17, src: 'assets/sfx/impact-boom.mp3', peak: true, gain: -3 },
+      { at: 77.3, src: 'assets/sfx/sparkle.mp3', peak: true, gain: -5 },
+      { at: 77.95, src: 'assets/sfx/whoosh-fast.mp3', peak: true, gain: -3 },
+      { endAt: 79.0, src: 'assets/sfx/riser-short.mp3', gain: -6 },
+      { at: 79.0, src: 'assets/sfx/sub-drop.mp3', peak: true, gain: -3 },
     ],
   },
   // voiceFilter: dynaudnorm lifts the words said softly ("bien évidemment") to the level of the rest
