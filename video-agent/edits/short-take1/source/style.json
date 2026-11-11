@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "name": "Maxime",
+  "creator": {
+    "lang": "fr"
+  },
+  "colors": {
+    "paper": "#1C1B1A",
+    "ink": "#F5F2EC",
+    "accent": "#FF6A2B"
+  },
+  "font": {
+    "family": "Inter"
+  },
+  "paper": {
+    "bg": "flat"
+  },
+  "display": {
+    "font": "Archivo Black",
+    "weight": 400,
+    "text": "Inter",
+    "flat": true
+  },
+  "captions": {
+    "style": "stack",
+    "font": "Inter",
+    "weight": 500,
+    "size": 64,
+    "big": 2.1,
+    "stretch": "normal",
+    "smallDisplay": false,
+    "color": "#F5F2EC",
+    "maxWords": 4,
+    "bigFont": "Archivo Black",
+    "bigWeight": 400,
+    "keyMin": 99,
+    "stagger": 0,
+    "smallW": 760,
+    "fullY": 1400,
+    "zoomDrop": 300
+  },
+  "layout": {
+    "seam": 0
+  },
+  "cuts": "hard",
+  "pace": {
+    "speed": 1.08,
+    "tighten": {
+      "sentence": 0.1,
+      "comma": 0.06,
+      "word": 0.03,
+      "lead": 0.03,
+      "tail": 0.6
+    }
+  },
+  "zoom": {
+    "drift": 0.004
+  },
+  "sfx": {
+    "accents": 0
+  },
+  "mix": {
+    "music": -36,
+    "duck": 0.5
+  },
+  "notes": [
+    "Guide: Mon guide de montage (Claude Docs)",
+    "Camera plein ecran tout du long, pas de split",
+    "Cartons typographiques plein ecran (seam 1920) toutes les 8 a 12 s, 1,5 a 3 s",
+    "3 a 5 mots orange par video, pas plus",
+    "Aucun blanc de plus de 0,1 s",
+    "Bruitages: 3 a 5 par video, seulement sur les mots orange et les preuves"
+  ],
+  "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0"
+}

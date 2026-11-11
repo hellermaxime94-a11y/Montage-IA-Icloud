@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:I;src:url(fonts/Inter.ttf)}@font-face{font-family:A;src:url(fonts/ArchivoBlack.ttf)}
+html,body{margin:0;width:1080px;height:1920px;background:#F5F2EC;overflow:hidden}
+#w{position:absolute;left:90px;right:90px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;padding-bottom:120px;box-sizing:border-box}
+#s{text-align:center;font:500 66px/1.2 I;color:#1C1B1A;letter-spacing:-1.5px}
+#s span{display:inline-block;margin:0 .13em;opacity:0}
+#b{text-align:center;font:400 150px/1 A;color:#FF6A2B;letter-spacing:-3px;opacity:0;white-space:nowrap;text-transform:uppercase}
+</style></head><body><div id="w"><div id="s"><span>comme</span><span>le</span><span>BAFA,</span><span>t'es</span><span>aussi</span><span>obligé</span><span>de</span></div><div id="b">payer.</div></div>
+<script>
+const SM=[0, 0.04, 0.11, 0.44, 0.67, 1.18, 1.25], BT=1.36, sp=[...document.querySelectorAll('#s span')], b=document.getElementById('b');
+const e=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
+function fit(){let s=150;b.style.fontSize=s+'px';while(b.scrollWidth>940&&s>60){s-=4;b.style.fontSize=s+'px';}}
+document.fonts.ready.then(fit);fit();
+window.setT=t=>{sp.forEach((el,i)=>{const p=e((t-SM[i])/.12);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*6}px)`;});
+const q=e((t-BT)/.18);b.style.opacity=Math.min(1,q*1.5);b.style.transform=`scale(${1.08-.08*q})`;};
+window.setT(0);
+</script></body></html>
