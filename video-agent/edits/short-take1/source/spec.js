@@ -137,6 +137,8 @@ window.SPEC = {
   captions: {
     replace: [],
     emph: ['ennemis', 'anormal.', 'secourisme,', 'BAFA,', 'réfléchir.', 'riche', 'accompagnement', 'MRR.', 'revenu', 'prochaine.'],
+    accent: ['ennemis', 'riche', 'revenu'],            // violet + white outline (like the creator's coloured key words)
+    serif: ['réfléchir', 'accompagnement', 'prochaine'], // Instrument Serif italic with a white glow
     // caption position follows the sentence mode: up top on WIDE sentences, on the chest on TIGHT ones.
     // TikTok safe box: y 220 to 1400 (the chest line sits at 1340 + 300 px per 1x of zoom, so 1400 at zoom 1.2).
     yKeys: [[0, 1340], [6.05, 520], [17.753, 520], [21.0, 1340], [26.602, 520], [31.8, 1340], [35.6, 520],

@@ -326,6 +326,16 @@ export async function boot() {
   const TALL = scap.tall || 1, SDISP = !!scap.smallDisplay, BB = !!scap.bigBlock, BLUR = !!scap.blurIn, BH = BB ? 1.04 : .8;
   const fSmall = () => { if (SDISP) return fBig(SCS); ctx.font = K.font(SCS, SWT, SCF); ctx.fontStretch = 'normal'; ctx.letterSpacing = -SCS * .04 + 'px'; };
   const fBig = sz => { ctx.font = `${BIGW} ${sz}px ${BIGF}`; ctx.fontStretch = scap.stretch || 'extra-condensed'; ctx.letterSpacing = -sz * .02 + 'px'; };
+  // captions.bigUpper false: big words keep their case (lowercase creator look). captions.serif [words]: those big words in
+  // Instrument Serif italic with a white glow. captions.accent [words]: those big words in the accent colour with an outline
+  // (captions.accentOutline, default white).
+  const UP = s => scap.bigUpper === false ? s : s.toUpperCase();
+  const SERIF = new Set((scap.serif || []).map(x => String(x).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '')));
+  const ACC = new Set((scap.accent || []).map(x => String(x).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '')));
+  const isSerif = w => SERIF.has(String(w.text).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ''));
+  const isAcc = w => ACC.has(String(w.text).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ''));
+  const fSerif = sz => { ctx.font = `italic 400 ${sz * 1.12}px "Instrument Serif"`; ctx.fontStretch = 'normal'; ctx.letterSpacing = '0px'; };
+  const fBigW = (w, sz) => isSerif(w) ? fSerif(sz) : fBig(sz);
   function stackLayout(c, paper) {
     const id = c.start + (paper ? 'p' : 'c'); let L = stackCache.get(id); if (L) return L;
     const PS = paper && scap.paperScale, key = paper && !PS || c.words.some(w => w.emph) ? null : c.words.reduce((b, w) => { const n = normW(w.text); return n.length >= (scap.keyMin ?? 4) && !STOP.has(n) && (!b || n.length > normW(b.text).length) ? w : b; }, null);
@@ -336,7 +346,7 @@ export async function boot() {
     if (paper && scap.paperBig && !PS) {
       const PB = SCS * scap.paperBig; fBig(PB); const sp = ctx.measureText(' ').width * 1.6; let ln = null;
       for (const w of c.words) {
-        const text = bare(w.text).toUpperCase(), wd = ctx.measureText(text).width;
+        const text = UP(bare(w.text)), wd = ctx.measureText(text).width;
         if (!ln || ln.width + sp + wd > maxW && ln.items.length) lines.push(ln = { big: PB, items: [], width: -sp, dx: 0 });
         ln.width += sp; ln.items.push({ w, text, x: ln.width }); ln.width += wd;
       }
@@ -346,7 +356,7 @@ export async function boot() {
     }
     for (const w of c.words) {
       if (paper && !PS || w.emph || w === key) {
-        const text = bare(w.text).toUpperCase(); fBig(SBIG); const k = Math.min(1, maxW / ctx.measureText(text).width), sz = SBIG * k;
+        const text = isSerif(w) ? bare(w.text) : UP(bare(w.text)); fBigW(w, SBIG); const k = Math.min(1, maxW / ctx.measureText(text).width), sz = SBIG * k;
         lines.push({ big: sz, h: sz * BH * TALL, dx: 0, width: ctx.measureText(text).width * k, items: [{ w, text, x: 0 }] }); cur = null; continue;
       }
       fSmall(); const text = bare(w.text), wd = ctx.measureText(text).width, sp = ctx.measureText(' ').width;
@@ -391,6 +401,7 @@ export async function boot() {
       const base = top + l.y + (l.big ? l.big * (BB ? .88 : .76) : SCS * .8) * TALL, x0 = l.big ? 0 : W / 2 - l.width / 2 + l.dx;
       if (l.big) fBig(l.big); else fSmall();
       for (const it of l.items) {
+        if (l.big) fBigW(it.w, l.big);
         const p = BLUR ? S(t - it.w.start + .03, 28) : scap.snap ? (t >= it.w.start - .03 ? 1 : 0) : S(t - it.w.start + .03, 40); if (p <= .002) continue;
         const x = l.big ? W / 2 - l.width / 2 + l.dx + it.x : x0 + it.x, k = l.big && !BLUR ? lerp(1.12, 1, p) : 1;
         if (BLUR && p < .998) ctx.filter = `blur(${((1 - p) * (l.big || SCS) * .12).toFixed(2)}px)`;
@@ -405,6 +416,11 @@ export async function boot() {
           const tw = ctx.measureText(it.text).width, px = l.big * .12;
           ctx.save(); ctx.fillStyle = C.blue; ctx.beginPath(); ctx.roundRect(x - px, base - l.big * .84, tw + 2 * px, l.big * .98, l.big * .12); ctx.fill();
           ctx.shadowColor = 'transparent'; ctx.fillStyle = C.onBlue; ctx.fillText(it.text, x, base); ctx.restore();
+        } else if (l.big && isAcc(it.w)) {   // accent word: accent fill over an outline
+          ctx.save(); ctx.lineJoin = 'round'; ctx.lineWidth = l.big * .09; ctx.strokeStyle = scap.accentOutline || '#FFFFFF';
+          ctx.strokeText(it.text, x, base); ctx.shadowColor = 'transparent'; ctx.fillStyle = C.blue; ctx.fillText(it.text, x, base); ctx.restore();
+        } else if (l.big && isSerif(it.w)) {   // serif italic word with a white glow
+          ctx.save(); ctx.shadowColor = 'rgba(255,255,255,.55)'; ctx.shadowBlur = l.big * .22; ctx.shadowOffsetY = 0; ctx.fillText(it.text, x, base); ctx.restore();
         } else ctx.fillText(it.text, x, base);
         ctx.filter = 'none';
         if (TALL !== 1) ctx.restore();

@@ -25,19 +25,23 @@
     "style": "stack",
     "font": "Inter",
     "weight": 500,
-    "size": 64,
-    "big": 2.1,
+    "size": 62,
+    "bigFont": "Inter",
+    "bigWeight": 800,
+    "big": 2.05,
+    "bigUpper": false,
     "stretch": "normal",
     "smallDisplay": false,
-    "color": "#F5F2EC",
-    "maxWords": 4,
-    "bigFont": "Archivo Black",
-    "bigWeight": 400,
+    "blurIn": true,
     "keyMin": 99,
-    "stagger": 40,
-    "smallW": 760,
-    "fullY": 1400,
-    "zoomDrop": 300
+    "stagger": 0,
+    "smallW": 820,
+    "fullY": 1080,
+    "zoomDrop": 300,
+    "maxWords": 5,
+    "maxChars": 28,
+    "color": "#FFFFFF",
+    "accentOutline": "#FFFFFF"
   },
   "layout": {
     "seam": 0
@@ -80,7 +84,8 @@
     "sfx.extra: le 3e nombre est un volume lineaire (pop .14, thud .4, tom .5, swish .16), pas des dB",
     "Jamais de changement de cadrage au milieu d'une phrase sans coupe: une phrase = un seul plan (large ou serre), les zooms y sont progressifs",
     "Photos sur les mots concrets (lieux, objets, argent, metiers): 1 a 1,5 s plein ecran, push lent, coupe franche, sous-titres par-dessus, un son a chaque arrivee. Source: Openverse CC0/PDM uniquement, assombries (brightness -0.07, vignette) pour lire le texte blanc",
-    "Bruitages DOUX style createrice (pas de sons radio: ni caisse, glitch, scratch, notification, basse, flash). Pack generate_soft_pack.py: swoosh-a/b/c/short/down, pop-a/b/c/big, typing-short/med/long, click. Swooshes sur zooms, coupes, cartons, photos; pops sur les mots forts; typing quand les mots d'un carton s'ecrivent et sur les mots du digital. Jamais deux fois le meme a la suite; swooshes -5/-6 dB, pops -3/-5, typing -6/-8"
+    "Bruitages DOUX style createrice (pas de sons radio: ni caisse, glitch, scratch, notification, basse, flash). Pack generate_soft_pack.py: swoosh-a/b/c/short/down, pop-a/b/c/big, typing-short/med/long, click. Swooshes sur zooms, coupes, cartons, photos; pops sur les mots forts; typing quand les mots d'un carton s'ecrivent et sur les mots du digital. Jamais deux fois le meme a la suite; swooshes -5/-6 dB, pops -3/-5, typing -6/-8",
+    "Sous-titres style creatrice (refs manon.bian): petits mots Inter 500 blancs minuscules qui apparaissent un par un (blur-in), un mot fort par phrase en Inter 800 minuscule x2; quelques mots forts en violet avec contour blanc (captions.accent) et quelques-uns en Instrument Serif italique avec lueur blanche (captions.serif)"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {
