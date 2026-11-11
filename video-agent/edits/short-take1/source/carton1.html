@@ -2,16 +2,16 @@
 @font-face{font-family:I;src:url(fonts/Inter.ttf)}@font-face{font-family:A;src:url(fonts/ArchivoBlack.ttf)}
 html,body{margin:0;width:1080px;height:1920px;background:#1C1B1A;overflow:hidden}
 #w{position:absolute;left:90px;right:90px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;padding-bottom:120px;box-sizing:border-box}
-#s{text-align:center;font:500 66px/1.2 I;color:#F5F2EC;letter-spacing:-1.5px}
-#s span{display:inline-block;margin:0 .13em;opacity:0}
+.l{text-align:center;font:500 66px/1.2 I;color:#F5F2EC;letter-spacing:-1.5px}
+.l span{display:inline-block;margin:0 .13em;opacity:0}
 #b{text-align:center;font:400 150px/1 A;color:#B49CFF;letter-spacing:-3px;opacity:0;white-space:nowrap;text-transform:uppercase;-webkit-text-stroke:.07em #FFFFFF;paint-order:stroke fill;padding:0 .06em .12em;filter:drop-shadow(0 .07em 0 #4B3596) drop-shadow(0 .1em .12em rgba(0,0,0,.55))}
-</style></head><body><div id="w"><div id="s"><span>selon</span><span>moi,</span><span>tu</span><span>dois</span></div><div id="b">investir.</div></div>
+</style></head><body><div id="w"><div class="l" id="s"><span class="w">selon</span><span class="w">moi,</span><span class="w">tu</span><span class="w">dois</span></div><div id="b">investir.</div><div class="l" id="a"></div></div>
 <script>
-const SM=[0, 0.3, 0.56, 0.65], BT=0.84, sp=[...document.querySelectorAll('#s span')], b=document.getElementById('b');
+const T=[0, 0.3, 0.56, 0.65], BT=0.84, sp=[...document.querySelectorAll('span.w')], b=document.getElementById('b');
 const e=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
 function fit(){let s=150;b.style.fontSize=s+'px';while(b.scrollWidth>940&&s>60){s-=4;b.style.fontSize=s+'px';}}
 document.fonts.ready.then(fit);fit();
-window.setT=t=>{sp.forEach((el,i)=>{const p=e((t-SM[i])/.12);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*6}px)`;});
+window.setT=t=>{sp.forEach((el,i)=>{const p=e((t-T[i])/.12);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*6}px)`;});
 const q=e((t-BT)/.18);b.style.opacity=Math.min(1,q*1.5);b.style.transform=`scale(${1.08-.08*q})`;};
 window.setT(0);
 </script></body></html>

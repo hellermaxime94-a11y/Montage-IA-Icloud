@@ -48,8 +48,9 @@ export async function buildAudio(proj, raw) {
   // ---- voice
   const X = studio(T), N = X.N, V = new Float32Array(N);
   if (!raw.silent) {   // spec.silent: paper-only piece, music + SFX only
+    // mix.voiceFilter: an extra ffmpeg chain run first on the voice (e.g. dynaudnorm to lift words said softly)
     const pcm = execFileSync(FFMPEG, ['-v', 'error', '-i', P('assets/voice.wav'), '-af',
-      'highpass=f=80,lowpass=f=15000,acompressor=threshold=0.125:ratio=3:attack=5:release=90:makeup=2',
+      (spec.mix?.voiceFilter ? spec.mix.voiceFilter + ',' : '') + 'highpass=f=80,lowpass=f=15000,acompressor=threshold=0.125:ratio=3:attack=5:release=90:makeup=2',
       '-ac', '1', '-ar', String(SR), '-f', 'f32le', '-'], { maxBuffer: 1 << 30 });
     const vsrc = new Float32Array(pcm.buffer, pcm.byteOffset, pcm.length / 4);
     V.set(vsrc.subarray(0, Math.min(N, vsrc.length)));

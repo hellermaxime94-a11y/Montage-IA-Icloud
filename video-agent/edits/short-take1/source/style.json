@@ -62,7 +62,8 @@
   "mix": {
     "music": -36,
     "duck": 0.5,
-    "sfx": -19
+    "sfx": -19,
+    "voiceFilter": "dynaudnorm=f=200:g=11:p=0.9:m=8"
   },
   "notes": [
     "Guide: Mon guide de montage (Claude Docs)",
@@ -70,10 +71,15 @@
     "Cartons typographiques plein ecran (seam 1920) toutes les 8 a 12 s, 1,5 a 3 s",
     "3 a 5 mots violet clair par video, pas plus",
     "Pas de musique: la musique est ajoutee dans TikTok",
-    "Sous-titres face camera: alterner haut (y 450, plans larges) et bas (y 1390, plans serres) a chaque phrase, dans la zone sure TikTok y 220-1400",
     "Mots violets des cartons: ombre portee violet fonce + ombre douce sous le contour",
-    "Vitesse 1x. Coupes uniquement sur les pauses de plus de 0,5 s (mesurees sur l'audio a -40 dB), raccourcies a 0,3 s; jamais de coupe dans un mot (hold sur toute la prise)",
-    "Bruitages bien audibles (mix sfx -19 LUFS): impact sur l'accroche et le dernier carton, zhhh a l'arrivee de chaque carton, thud + pop sur chaque mot violet, pop sur chaque grand mot blanc des sous-titres"
+    "Bruitages bien audibles (mix sfx -19 LUFS): impact sur l'accroche et le dernier carton, zhhh a l'arrivee de chaque carton, thud + pop sur chaque mot violet, pop sur chaque grand mot blanc des sous-titres",
+    "Vitesse 1x. Coupes uniquement sur les pauses de plus de 0,5 s (mesurees sur l'audio a -40 dB), ramenees a 0,2 s; jamais de coupe dans un mot (hold sur toute la prise)",
+    "Chaque coupe tombe sur un changement de zoom sec (spring 400) + tom: la coupe ne se voit pas",
+    "Chaque phrase est LARGE (zoom ~1, sous-titres en haut y 520) ou SERREE (zoom 1.12+, sous-titres poitrine y 1340), en alternance",
+    "Dans une phrase: zooms/dezooms progressifs + swish, zoom sec 1.2 + thud sur les mots forts",
+    "Un carton affiche tous les mots dits pendant qu'il est a l'ecran (3e ligne si besoin), avec les mots exacts",
+    "Voix egalisee (dynaudnorm) pour que les mots dits bas restent comprehensibles",
+    "sfx.extra: le 3e nombre est un volume lineaire (pop .14, thud .4, tom .5, swish .16), pas des dB"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {
