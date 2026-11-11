@@ -133,7 +133,7 @@ export async function buildAudio(proj, raw) {
   const BED = [new Float32Array(N), new Float32Array(N)], FX = [new Float32Array(N), new Float32Array(N)], EV = [new Float32Array(N), new Float32Array(N)];
   for (let c = 0; c < 2; c++) for (let i = 0; i < N; i++) { BED[c][i] = X.MUS[c][i] + X.DRM[c][i] * .9 + RV[c][i] * .5; EV[c][i] = X.SFX[c][i]; FX[c][i] = X.SFX[c][i] + X.NZ[c][i] + RV[c][i] * .5; }
   // soft sfx (spec.sfx.appear = 'slide'): the slides live on the noise bus, so normalize the whole FX bus
-  const lb = lufs(BED), le = lufs(EV), lf = le > -90 && spec.sfx?.appear !== 'slide' ? le : lufs(FX), gb = lb > -90 ? db(mixCfg.music - lb) : 0, gf = lf > -90 ? db(mixCfg.sfx - lf) : 0;
+  const lb = lufs(BED), le = lufs(EV), lf = le > -90 && spec.sfx?.appear !== 'slide' ? le : lufs(FX), gb = lb > -90 && !spec.music?.mute ? db(mixCfg.music - lb) : 0, gf = lf > -90 ? db(mixCfg.sfx - lf) : 0;
 
   // spec.sfx.files: [{at | endAt, src, gain -10, pan 0, peak, offset, len}] designed sound files (an ElevenLabs impact, a riser).
   // Each is levelled on its own to (-16 + gain) LUFS, i.e. gain dB under the voice, and stays out of the SFX bus measurement.
@@ -189,5 +189,5 @@ export async function buildAudio(proj, raw) {
     for (let i = 0; i < N; i++) for (let c = 0; c < 2; c++) sb.writeFloatLE(BED[c][i] * gb * DK[i] * DR[i] + FX[c][i] * gf + SF[c][i], 44 + i * 8 + c * 4);
     fs.writeFileSync(P('assets/fx.wav'), sb);
   }
-  console.log(`[short] mix.wav: ${T.toFixed(2)}s, voice -16 LUFS, ${lb > -90 ? `bed ${mixCfg.music} LUFS (duck ${Math.round(mixCfg.duck * 100)}%)` : 'no music'}, ${lf > -90 ? `sfx ${mixCfg.sfx} LUFS` : 'no synth sfx'}${(spec.sfx?.files?.length || 0) + kit.files.length ? `, ${(spec.sfx?.files?.length || 0) + kit.files.length} sfx files` : ''} -> master ${I.toFixed(2)} LUFS, peak ${(20 * Math.log10(peak)).toFixed(2)} dBFS (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
+  console.log(`[short] mix.wav: ${T.toFixed(2)}s, voice -16 LUFS, ${lb > -90 && gb ? `bed ${mixCfg.music} LUFS (duck ${Math.round(mixCfg.duck * 100)}%)` : 'no music'}, ${lf > -90 ? `sfx ${mixCfg.sfx} LUFS` : 'no synth sfx'}${(spec.sfx?.files?.length || 0) + kit.files.length ? `, ${(spec.sfx?.files?.length || 0) + kit.files.length} sfx files` : ''} -> master ${I.toFixed(2)} LUFS, peak ${(20 * Math.log10(peak)).toFixed(2)} dBFS (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
 }

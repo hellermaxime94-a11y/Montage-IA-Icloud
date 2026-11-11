@@ -7,7 +7,7 @@
   "colors": {
     "paper": "#1C1B1A",
     "ink": "#F5F2EC",
-    "accent": "#FF6A2B"
+    "accent": "#B49CFF"
   },
   "font": {
     "family": "Inter"
@@ -67,9 +67,13 @@
     "Guide: Mon guide de montage (Claude Docs)",
     "Camera plein ecran tout du long, pas de split",
     "Cartons typographiques plein ecran (seam 1920) toutes les 8 a 12 s, 1,5 a 3 s",
-    "3 a 5 mots orange par video, pas plus",
+    "3 a 5 mots violet clair par video, pas plus",
     "Aucun blanc de plus de 0,1 s",
-    "Bruitages: 3 a 5 par video, seulement sur les mots orange et les preuves"
+    "Bruitages: 3 a 5 par video, seulement sur les mots violet clair et les preuves",
+    "Pas de musique: la musique est ajoutee dans TikTok"
   ],
-  "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0"
+  "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
+  "music": {
+    "mute": true
+  }
 }

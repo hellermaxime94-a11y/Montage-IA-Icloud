@@ -1,6 +1,6 @@
 // Short: "Pour lancer un business, tu dois investir". All times are SOURCE seconds (files/words.md).
 // Style: maxime (Mon guide de montage). Full camera all along, hard cuts, 5 typographic cards (alternating dark/light),
-// 5 orange words = the card payoffs only. Captions: small Inter words, one big key word (white) per sentence.
+// 5 light violet words = the card payoffs only. Captions: small Inter words, one big key word (white) per sentence.
 // Beats: hook 0-3.5 tight (zoom 1.15) "ennemis" big -> carton1 INVESTIR (3.5-6.95) -> examples formation/secourisme
 // -> carton2 PAYER (23.75-26.5) -> "pourquoi pas en ligne?" -> carton3 INTELLIGEMMENT (43.3-45.55) -> competences
 // -> carton4 PERSONNE (58.45-61.4) -> MRR story -> carton5 COMMENTAIRE (75.75-77.9) -> sign-off.
@@ -33,7 +33,7 @@ window.SPEC = {
   actors: [],
   scenes: [],
 
-  music: { bed: 'enquete', offset: 0 },
+  music: { mute: true },   // the creator adds a TikTok sound on the app
   sfx: { swish: 0, accents: 0, extra: [[4.40, 'pop', -4], [25.31, 'pop', -4], [43.62, 'pop', -4], [60.71, 'pop', -4], [77.05, 'pop', -4]] },
 
   captions: {
