@@ -80,7 +80,7 @@
     "sfx.extra: le 3e nombre est un volume lineaire (pop .14, thud .4, tom .5, swish .16), pas des dB",
     "Jamais de changement de cadrage au milieu d'une phrase sans coupe: une phrase = un seul plan (large ou serre), les zooms y sont progressifs",
     "Photos sur les mots concrets (lieux, objets, argent, metiers): 1 a 1,5 s plein ecran, push lent, coupe franche, sous-titres par-dessus, un son a chaque arrivee. Source: Openverse CC0/PDM uniquement, assombries (brightness -0.07, vignette) pour lire le texte blanc",
-    "Bruitages style viral (pack original genere par assets/sfx/generate_viral_pack.py): sub-drop, ding, sparkle, cash, glitch, scratch, typewriter, notif, whoosh-fast, swoosh-hit, snap, flash + whooshes, riser, boom-soft, bubble. Choisis par le sens (argent = cash, digital = glitch/notif, carton = swoosh-hit/scratch/glitch, mot fort = sub-drop/ding/sparkle), jamais deux fois le meme a la suite. Fichiers a -2/-5 dB, mix sfx -15"
+    "Bruitages DOUX style createrice (pas de sons radio: ni caisse, glitch, scratch, notification, basse, flash). Pack generate_soft_pack.py: swoosh-a/b/c/short/down, pop-a/b/c/big, typing-short/med/long, click. Swooshes sur zooms, coupes, cartons, photos; pops sur les mots forts; typing quand les mots d'un carton s'ecrivent et sur les mots du digital. Jamais deux fois le meme a la suite; swooshes -5/-6 dB, pops -3/-5, typing -6/-8"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {
