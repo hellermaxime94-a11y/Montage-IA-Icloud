@@ -23,7 +23,7 @@ cards = [
 ]
 os.makedirs(f'{P}/source/fonts', exist_ok=True)
 FD = os.path.join(os.path.dirname(os.path.abspath(P)), '..', '..', '.claude/skills/short-editing/engine/fonts')
-for f in ('Inter.ttf', 'ArchivoBlack.ttf'): shutil.copy(os.path.join(FD, f), f'{P}/source/fonts/{f}')
+for f in ('Inter.ttf', 'ArchivoBlack.ttf', 'InstrumentSerif-Italic.ttf'): shutil.copy(os.path.join(FD, f), f'{P}/source/fonts/{f}')
 out = []
 for cid, th, a, b, before, big, after in cards:
     t0 = sh(a); dur = round(sh(b) - t0, 2)
@@ -33,11 +33,11 @@ for cid, th, a, b, before, big, after in cards:
     af = [(loc(s), w) for s, w in after]
     spans = lambda L, cls: ''.join(f'<span class="{cls}">{w}</span>' for _, w in L)
     html = f'''<!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{{font-family:I;src:url(fonts/Inter.ttf)}}@font-face{{font-family:A;src:url(fonts/ArchivoBlack.ttf)}}
+@font-face{{font-family:I;src:url(fonts/Inter.ttf)}}@font-face{{font-family:A;src:url(fonts/ArchivoBlack.ttf)}}@font-face{{font-family:S;font-style:italic;src:url(fonts/InstrumentSerif-Italic.ttf)}}
 html,body{{margin:0;width:1080px;height:1920px;background:{th['bg']};overflow:hidden}}
 #w{{position:absolute;left:90px;right:90px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;padding-bottom:120px;box-sizing:border-box}}
-.l{{text-align:center;font:500 66px/1.2 I;color:{th['ink']};letter-spacing:-1.5px}}
-.l span{{display:inline-block;margin:0 .13em;opacity:0}}
+.l{{text-align:center;font:italic 400 84px/1.12 S;color:{th['ink']};letter-spacing:0}}
+.l span{{display:inline-block;margin:0 .12em;opacity:0}}
 #b{{text-align:center;font:400 150px/1 A;color:{ACC};letter-spacing:-3px;opacity:0;white-space:nowrap;text-transform:uppercase;-webkit-text-stroke:.07em {th['out']};paint-order:stroke fill;padding:0 .06em .12em;filter:{th['sh']}}}
 </style></head><body><div id="w"><div class="l" id="s">{spans(sm,'w')}</div><div id="b">{big[1]}</div><div class="l" id="a">{spans(af,'w')}</div></div>
 <script>

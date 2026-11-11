@@ -241,7 +241,7 @@ export async function boot() {
   const STACK = CNAME === 'stack', SCS = scap.size || CS, SWT = scap.weight || WT, SCF = scap.font ? K.famCss(scap.font) : CF;
   const LBF = scap.labelFont ? K.famCss(scap.labelFont) : SCF, LBW = scap.labelWeight || 500;
   const BIGF = scap.bigFont ? K.famCss(scap.bigFont) : 'Archivo', BIGW = scap.bigWeight || (scap.bigFont ? 800 : 900);
-  if (STACK || HOOK) { for (const f of [`${BIGW} 40px ${BIGF}`, `${LBW} 40px ${LBF}`, `${SWT} 40px ${SCF}`]) await document.fonts.load(f); }
+  if (STACK || HOOK) { for (const f of [`${BIGW} 40px ${BIGF}`, `${LBW} 40px ${LBF}`, `${SWT} 40px ${SCF}`, `italic ${SWT} 40px ${SCF}`, 'italic 400 40px "Instrument Serif"']) await document.fonts.load(f); }
   const wordW = w => K.measure(ctx, w.text, CS, WT, LS, CF);
   // captions.space: word gap as a multiple of the font's space (a pixel font's space is wide: .6 = aiwithremy's tight gap)
   const spW = () => K.measure(ctx, ' ', CS, WT, LS, CF) * (cap.space ?? 1);
@@ -324,7 +324,10 @@ export async function boot() {
   const bare = s => String(s).replace(/^[«"“'(]+|[.,!?;:…»"”')]+$/g, '');
   const stackCache = new Map(), SBIG = SCS * (scap.big || 3.2), OUT = scap.outline, OUT_END = OUT ? OUT.until ?? chunks[0]?.end ?? 0 : -1;
   const TALL = scap.tall || 1, SDISP = !!scap.smallDisplay, BB = !!scap.bigBlock, BLUR = !!scap.blurIn, BH = BB ? 1.04 : .8;
-  const fSmall = () => { if (SDISP) return fBig(SCS); ctx.font = K.font(SCS, SWT, SCF); ctx.fontStretch = 'normal'; ctx.letterSpacing = -SCS * .04 + 'px'; };
+  // captions.smallItalic: the small words in italic (with captions.font, e.g. Instrument Serif for an editorial look)
+  const fSmall = () => { if (SDISP) return fBig(SCS);
+    if (scap.smallItalic) { ctx.font = `italic ${SWT} ${SCS}px ${SCF}`; ctx.fontStretch = 'normal'; ctx.letterSpacing = '0px'; return; }
+    ctx.font = K.font(SCS, SWT, SCF); ctx.fontStretch = 'normal'; ctx.letterSpacing = -SCS * .04 + 'px'; };
   const fBig = sz => { ctx.font = `${BIGW} ${sz}px ${BIGF}`; ctx.fontStretch = scap.stretch || 'extra-condensed'; ctx.letterSpacing = -sz * .02 + 'px'; };
   // captions.bigUpper false: big words keep their case (lowercase creator look). captions.serif [words]: those big words in
   // Instrument Serif italic with a white glow. captions.accent [words]: those big words in the accent colour with an outline
