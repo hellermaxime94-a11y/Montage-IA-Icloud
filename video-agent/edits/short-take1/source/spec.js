@@ -14,7 +14,11 @@ window.SPEC = {
     carton5: { src: 'assets/carton5.mp4', width: 1080 },
   },
   cam: { crop: [0, 0, 720, 1280], eyes: [349, 767] },
-  cut: [[0.033, 0.373], [0.489, 0.568], [7.096, 7.213], [10.585, 10.71], [11.6, 11.904], [13.639, 13.714], [15.159, 15.263], [20.214, 20.255], [20.763, 20.797], [21.158, 21.407], [31.337, 31.806], [34.016, 34.055], [38.211, 38.258], [39.736, 39.772], [47.979, 48.35], [50.179, 50.433], [60.774, 61.047], [63.312, 63.997], [72.072, 72.416], [73.214, 73.428], [75.885, 76.015], [77.532, 77.628], [79.905, 80.35]],   // remaining pauses > 0.1 s (measured on the voice), each trimmed to <= 0.1 s
+  // silence handling: nothing is cut automatically (hold the whole take), only the 8 pauses over 0.5 s
+  // (measured on the audio at -40 dB) are shortened to 0.3 s, so no spoken word is ever clipped.
+  hold: [[0, 81.2]],
+  cut: [[5.162, 5.759], [17.166, 17.703], [26.107, 26.552], [42.423, 43.12], [47.994, 48.236], [56.497, 57.06], [63.459, 64.258], [80.013, 80.956]],
+  speed: 1,
 
   layout: { keys: [[0, 0]] },
   // punch-in alternated on the sentence cuts (wide 1 / tight 1.1), the hook tight
@@ -34,7 +38,27 @@ window.SPEC = {
   scenes: [],
 
   music: { mute: true },   // the creator adds a TikTok sound on the app
-  sfx: { swish: 0, accents: 0, extra: [[4.40, 'pop', -4], [25.31, 'pop', -4], [43.62, 'pop', -4], [60.71, 'pop', -4], [77.05, 'pop', -4]] },
+  // sound: one boom on the hook verdict and on the last card, a swoosh on each card entry, a thud + pop on each
+  // violet word, a pop on each big white caption word. Louder than before (mix.sfx -19 LUFS, was -29.5).
+  sfx: {
+    swish: 0, accents: 0,
+    extra: [
+      [4.40, 'thud', 0], [4.40, 'pop', 0], [25.31, 'thud', 0], [25.31, 'pop', 0], [43.70, 'thud', 0], [43.70, 'pop', 0],
+      [60.71, 'thud', 0], [60.71, 'pop', 0],
+      [16.17, 'pop', -2], [19.27, 'pop', -2], [23.93, 'pop', -2], [34.79, 'pop', -2], [46.49, 'pop', -2],
+      [51.37, 'pop', -2], [66.93, 'pop', -2], [71.70, 'pop', -2], [79.00, 'pop', -2],
+    ],
+    files: [
+      { at: 1.29, src: 'assets/sfx/impact-boom.mp3', peak: true, gain: -9 },
+      { at: 3.50, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -8 },
+      { at: 23.75, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -10 },
+      { at: 43.30, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -10 },
+      { at: 58.45, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -10 },
+      { at: 75.75, src: 'assets/sfx/zhhh.mp3', peak: true, gain: -8 },
+      { at: 77.05, src: 'assets/sfx/impact-boom.mp3', peak: true, gain: -8 },
+    ],
+  },
+  mix: { sfx: -19 },
 
   captions: {
     replace: [],

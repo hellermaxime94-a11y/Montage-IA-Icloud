@@ -7,7 +7,7 @@ html,body{margin:0;width:1080px;height:1920px;background:#F5F2EC;overflow:hidden
 #b{text-align:center;font:400 150px/1 A;color:#B49CFF;letter-spacing:-3px;opacity:0;white-space:nowrap;text-transform:uppercase;-webkit-text-stroke:.07em #1C1B1A;paint-order:stroke fill;padding:0 .06em .12em;filter:drop-shadow(0 .07em 0 #8C76D9) drop-shadow(0 .1em .12em rgba(28,27,26,.35))}
 </style></head><body><div id="w"><div id="s"><span>c'est</span><span>de</span><span>comprendre</span><span>que</span><span>tu</span><span>investis</span><span>en</span><span>ta</span></div><div id="b">personne.</div></div>
 <script>
-const SM=[0, 0.27, 0.39, 0.99, 1.25, 1.29, 1.77, 1.89], BT=2.43, sp=[...document.querySelectorAll('#s span')], b=document.getElementById('b');
+const SM=[0, 0.3, 0.43, 1.07, 1.36, 1.4, 1.92, 2.05], BT=2.18, sp=[...document.querySelectorAll('#s span')], b=document.getElementById('b');
 const e=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
 function fit(){let s=150;b.style.fontSize=s+'px';while(b.scrollWidth>940&&s>60){s-=4;b.style.fontSize=s+'px';}}
 document.fonts.ready.then(fit);fit();
