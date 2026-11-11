@@ -15,10 +15,12 @@ window.SPEC = {
     carton5: { src: 'assets/carton5.mp4', width: 1080 },
     // public-domain photos (Openverse, CC0 / PDM), cropped to 9:16: see assets/images/CREDITS.json
     ecole: { src: 'assets/images/ecole.jpg', width: 1080 }, travail: { src: 'assets/images/travail.jpg', width: 1080 },
-    secourisme: { src: 'assets/images/secourisme.jpg', width: 1080 }, business: { src: 'assets/images/business.jpg', width: 1080 },
-    cartes: { src: 'assets/images/cartes.jpg', width: 1080 }, livres: { src: 'assets/images/livres.jpg', width: 1080 },
-    luxe: { src: 'assets/images/luxe.jpg', width: 1080 }, outils: { src: 'assets/images/outils.jpg', width: 1080 },
-    smartphone: { src: 'assets/images/smartphone.jpg', width: 1080 }, etudes: { src: 'assets/images/etudes.jpg', width: 1080 },
+    cartes: { src: 'assets/images/cartes.jpg', width: 1080 }, luxe: { src: 'assets/images/luxe.jpg', width: 1080 },
+    etudes: { src: 'assets/images/etudes.jpg', width: 1080 },
+    // the creator's own images (rounded card on a blurred background, or full frame on black)
+    digitalLaptop: { src: 'assets/images/digital-laptop.jpg', width: 1080 }, ebooks: { src: 'assets/images/ebooks.jpg', width: 1080 },
+    vizion: { src: 'assets/images/vizion.jpg', width: 1080 }, marketingDigital: { src: 'assets/images/marketing-digital.jpg', width: 1080 },
+    guide: { src: 'assets/images/guide.jpg', width: 1080 },
   },
   cam: { crop: [0, 0, 720, 1280], eyes: [349, 767] },
 
@@ -57,13 +59,13 @@ window.SPEC = {
     // photos on the words they illustrate (captions stay on top), slow push, hard cut in and out
     { media: 'ecole', from: 10.35, to: 11.40, zoom: .06, hard: true },
     { media: 'travail', from: 11.40, to: 12.75, zoom: .06, hard: true },
-    { media: 'secourisme', from: 18.40, to: 19.85, zoom: .06, hard: true },
-    { media: 'business', from: 28.00, to: 29.50, zoom: .06, hard: true },
+    { media: 'digitalLaptop', from: 28.00, to: 29.50, zoom: .05, hard: true },
     { media: 'cartes', from: 33.30, to: 34.50, zoom: .06, hard: true },
-    { media: 'livres', from: 39.90, to: 41.60, zoom: .06, hard: true },
+    { media: 'ebooks', from: 39.90, to: 41.60, zoom: .05, hard: true },
     { media: 'luxe', from: 46.00, to: 47.30, zoom: .06, hard: true },
-    { media: 'outils', from: 50.50, to: 51.30, zoom: .06, hard: true },
-    { media: 'smartphone', from: 65.70, to: 66.90, zoom: .06, hard: true },
+    { media: 'vizion', from: 50.50, to: 52.40, zoom: .04, hard: true },
+    { media: 'marketingDigital', from: 65.70, to: 66.90, zoom: .05, hard: true },
+    { media: 'guide', from: 68.31, to: 69.95, zoom: .04, hard: true },
     { media: 'etudes', from: 72.90, to: 74.00, zoom: .06, hard: true },
   ],
 
@@ -102,7 +104,6 @@ window.SPEC = {
       { endAt: 16.1, src: 'assets/sfx/riser-short.mp3', gain: -5 },
       { at: 38.0, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 },
       { at: 49.3, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
-      { at: 51.6, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 },
       { at: 53.9, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -2 },
       { at: 74.1, src: 'assets/sfx/whoosh-out.mp3', peak: true, gain: -2 },
       { endAt: 79.0, src: 'assets/sfx/riser-short.mp3', gain: -4 },
@@ -110,10 +111,11 @@ window.SPEC = {
       { at: 34.7, src: 'assets/sfx/boom-soft.mp3', peak: true, gain: -0 },
       // photos in: rotate shutter / swipe / whoosh
       { at: 10.35, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 }, { at: 11.40, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 },
-      { at: 18.40, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 }, { at: 28.00, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
+      { at: 28.00, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
       { at: 33.30, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 }, { at: 39.90, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 },
       { at: 46.00, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 }, { at: 50.50, src: 'assets/sfx/swipe.mp3', peak: true, gain: -2 },
       { at: 65.70, src: 'assets/sfx/shutter.mp3', peak: true, gain: -1 }, { at: 72.90, src: 'assets/sfx/whoosh-air.mp3', peak: true, gain: -3 },
+      { at: 68.31, src: 'assets/sfx/whoosh-low.mp3', peak: true, gain: -1 },
       // big caption words, second voice
       { at: 19.27, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 }, { at: 46.49, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 },
       { at: 66.93, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 }, { at: 79.00, src: 'assets/sfx/bubble.mp3', peak: true, gain: -3 },
@@ -129,6 +131,6 @@ window.SPEC = {
     // TikTok safe box: y 220 to 1400 (the chest line sits at 1340 + 300 px per 1x of zoom, so 1400 at zoom 1.2).
     yKeys: [[0, 1340], [6.05, 520], [17.753, 520], [21.0, 1340], [26.602, 520], [31.8, 1340], [35.6, 520],
             [43.17, 1340], [48.286, 520], [50.3, 1340], [57.11, 520], [61.4, 1340], [64.308, 520], [67.65, 1340], [77.95, 1340]],
-    hide: [[3.50, 6.05], [23.75, 26.5], [43.30, 45.55], [58.45, 61.40], [75.75, 77.90]],
+    hide: [[65.70, 66.90], [3.50, 6.05], [23.75, 26.5], [43.30, 45.55], [58.45, 61.40], [75.75, 77.90]],
   },
 };
