@@ -62,7 +62,7 @@
   "mix": {
     "music": -36,
     "duck": 0.5,
-    "sfx": -19,
+    "sfx": -15,
     "voiceFilter": "dynaudnorm=f=200:g=11:p=0.9:m=8"
   },
   "notes": [
@@ -72,14 +72,15 @@
     "3 a 5 mots violet clair par video, pas plus",
     "Pas de musique: la musique est ajoutee dans TikTok",
     "Mots violets des cartons: ombre portee violet fonce + ombre douce sous le contour",
-    "Bruitages bien audibles (mix sfx -19 LUFS): impact sur l'accroche et le dernier carton, zhhh a l'arrivee de chaque carton, thud + pop sur chaque mot violet, pop sur chaque grand mot blanc des sous-titres",
     "Vitesse 1x. Coupes uniquement sur les pauses de plus de 0,5 s (mesurees sur l'audio a -40 dB), ramenees a 0,2 s; jamais de coupe dans un mot (hold sur toute la prise)",
     "Chaque coupe tombe sur un changement de zoom sec (spring 400) + tom: la coupe ne se voit pas",
     "Chaque phrase est LARGE (zoom ~1, sous-titres en haut y 520) ou SERREE (zoom 1.12+, sous-titres poitrine y 1340), en alternance",
-    "Dans une phrase: zooms/dezooms progressifs + swish, zoom sec 1.2 + thud sur les mots forts",
     "Un carton affiche tous les mots dits pendant qu'il est a l'ecran (3e ligne si besoin), avec les mots exacts",
     "Voix egalisee (dynaudnorm) pour que les mots dits bas restent comprehensibles",
-    "sfx.extra: le 3e nombre est un volume lineaire (pop .14, thud .4, tom .5, swish .16), pas des dB"
+    "sfx.extra: le 3e nombre est un volume lineaire (pop .14, thud .4, tom .5, swish .16), pas des dB",
+    "Jamais de changement de cadrage au milieu d'une phrase sans coupe: une phrase = un seul plan (large ou serre), les zooms y sont progressifs",
+    "Bruitages varies et bien audibles (mix sfx -15, fichiers a -1/-4 dB): ne jamais enchainer deux fois le meme son. Pack assets/sfx: whoosh-air, whoosh-low, whoosh-out (dezoom), riser-short (vers un zoom sec), swipe, shutter (photo), boom-soft, bubble, + zhhh / impact-boom",
+    "Photos sur les mots concrets (lieux, objets, argent, metiers): 1 a 1,5 s plein ecran, push lent, coupe franche, sous-titres par-dessus, un son a chaque arrivee. Source: Openverse CC0/PDM uniquement, assombries (brightness -0.07, vignette) pour lire le texte blanc"
   ],
   "grade": "eq=brightness=0.04:contrast=1.06:saturation=1.02:gamma=1.22,unsharp=5:5:0.4:5:5:0",
   "music": {
