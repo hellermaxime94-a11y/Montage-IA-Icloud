@@ -14,12 +14,12 @@ LIGHT = dict(bg='#F5F2EC', ink='#1C1B1A', out='#1C1B1A', sh='drop-shadow(0 .07em
 ACC = '#B49CFF'
 # (id, theme, src_from, src_to, before [(src, word)], (src, BIG) or (src, BIG, fixed_local_time), after [(src, word)])
 cards = [
- ('carton1', DARK, 3.50, 6.05, [(3.56,'selon'),(3.86,'moi,'),(4.12,'tu'),(4.21,'dois')], (4.40,'investir.'), []),
- ('carton2', LIGHT, 23.75, 26.5, [(23.81,'comme'),(23.85,'le'),(23.93,'BAFA,'),(24.29,"t'es"),(24.53,'aussi'),(25.12,'obligé'),(25.20,'de')], (25.31,'payer.'), []),
- ('carton3', DARK, 43.30, 45.55, [(43.36,'parce'),(43.36,"qu'investir")], (43.36,'intelligemment', .35),
-     [(44.11,"ce"),(44.15,"n'est"),(44.45,'pas'),(44.59,'dépenser'),(45.04,'de'),(45.15,"l'argent")]),
- ('carton4', LIGHT, 58.45, 61.40, [(58.53,"c'est"),(58.83,'de'),(58.96,'comprendre'),(59.60,'que'),(59.89,'tu'),(59.93,'investis'),(60.45,'en'),(60.58,'ta')], (60.71,'personne.'), []),
- ('carton5', DARK, 75.75, 77.90, [(75.80,"je"),(75.80,"t'invite"),(76.17,'à'),(76.21,'me'),(76.39,'le'),(76.43,'faire'),(76.71,'savoir'),(77.05,'en')], (77.17,'commentaire.'), []),
+ ('carton1', DARK, 3.77, 6.05, [(3.81,'selon'),(4.07,'moi,'),(4.31,'tu'),(4.49,'dois')], (4.89,'investir.'), []),
+ ('carton2', LIGHT, 23.93, 26.83, [(23.95,'comme'),(24.09,'le'),(24.25,'BAFA,'),(24.63,"t'es"),(25.05,'aussi'),(25.43,'obligé'),(25.61,'de')], (25.83,'payer.'), []),
+ ('carton3', DARK, 43.25, 46.07, [(43.33,'parce'),(43.43,"qu'investir")], (44.11,'intelligemment'),
+     [(44.63,"ce"),(44.73,"n'est"),(44.99,'pas'),(45.31,'dépenser'),(45.65,'de'),(45.69,"l'argent")]),
+ ('carton4', LIGHT, 58.41, 61.15, [(58.43,"c'est"),(58.55,'de'),(58.87,'comprendre'),(59.13,'que'),(59.33,'tu'),(59.59,'investis'),(60.01,'en'),(60.19,'ta')], (60.63,'personne.'), []),
+ ('carton5', DARK, 76.03, 78.49, [(76.13,"je"),(76.13,"t'invite"),(76.55,'à'),(76.65,'me'),(76.73,'le'),(76.89,'faire'),(77.27,'savoir'),(77.71,'en')], (77.97,'commentaire.'), []),
 ]
 os.makedirs(f'{P}/source/fonts', exist_ok=True)
 FD = os.path.join(os.path.dirname(os.path.abspath(P)), '..', '..', '.claude/skills/short-editing/engine/fonts')

@@ -25,45 +25,45 @@ window.SPEC = {
 
   // silence handling: nothing is cut automatically (hold the whole take), only the 8 pauses over 0.5 s
   // (measured on the audio at -40 dB) are shortened to 0.2 s, so no spoken word is ever clipped.
-  hold: [[0, 81.2]],
-  cut: [[5.112, 5.809], [17.116, 17.753], [26.057, 26.602], [42.373, 43.17], [47.944, 48.286], [56.447, 57.11], [63.409, 64.308], [79.963, 81.006]],
+  hold: [[0.5, 81.2]],
+  cut: [[0, 0.5], [5.112, 5.809], [17.116, 17.753], [26.057, 26.602], [42.373, 43.17], [47.944, 48.286], [56.447, 57.11], [63.409, 64.308], [79.963, 81.006]],
   speed: 1,
 
   layout: { keys: [[0, 0]] },
   zoom: { keys: [
-    [0, 1.12], [1.25, 1.2, 400], [2.2, 1.08],                    // T hook: punch on "ennemis", ease out
-    [6.05, 1, 400], [9.0, 1.06], [14.2, 1.14], [16.1, 1.2, 400], // W one sentence, no cut: ease in, "anormal" punch
-    [17.753, 1, 400], [19.2, 1.06],                               // W (cut)
-    [21.0, 1.12, 400],                                            // T
-    [26.602, 1, 400], [28.6, 1.06],                               // W (cut, after card 2)
-    [31.8, 1.12, 400], [34.7, 1.2, 400],                          // T "réfléchir" punch
-    [35.6, 1, 400], [38.0, 1.06],                                 // W "bien évidemment"
+    [0.0, 1.12], [1.58, 1.2, 400], [2.39, 1.08],                    // T hook: punch on "ennemis", ease out
+    [6.05, 1, 400], [9.51, 1.06], [14.73, 1.14], [16.53, 1.2, 400], // W one sentence, no cut: ease in, "anormal" punch
+    [17.753, 1, 400], [19.52, 1.06],                               // W (cut)
+    [21.48, 1.12, 400],                                            // T
+    [26.602, 1, 400], [28.67, 1.06],                               // W (cut, after card 2)
+    [31.82, 1.12, 400], [35.06, 1.2, 400],                          // T "réfléchir" punch
+    [35.62, 1, 400], [38.25, 1.06],                                 // W "bien évidemment"
     [43.17, 1.12, 400],                                           // T (cut), card 3
-    [45.55, 1.1, 400],                                            // T ("riche" is a photo)
-    [48.286, 1, 400], [49.3, 1.06],                               // W (cut)
-    [50.3, 1.12, 400], [51.3, 1.2], [53.9, 1.1],                  // T "accompagnement" ease in, ease out
+    [46.07, 1.1, 400],                                            // T ("riche" is a photo)
+    [48.286, 1, 400], [49.56, 1.06],                               // W (cut)
+    [50.53, 1.12, 400], [51.68, 1.2], [53.88, 1.1],                  // T "accompagnement" ease in, ease out
     [57.11, 1, 400],                                              // W (cut), card 4
-    [61.4, 1.12, 400],                                            // T
+    [61.15, 1.12, 400],                                            // T
     [64.308, 1, 400], [66.0, 1.06],                               // W (cut)
-    [67.65, 1.12, 400], [71.6, 1.2, 400], [74.1, 1.1],            // T "revenu" punch, ease out
-    [77.95, 1.12, 400], [78.9, 1.2],                              // T sign-off, ease in on "prochaine"
+    [67.68, 1.12, 400], [70.81, 1.2, 400], [74.26, 1.1],            // T "revenu" punch, ease out
+    [78.53, 1.12, 400], [79.39, 1.2],                              // T sign-off, ease in on "prochaine"
   ] },
 
   broll: [
-    { media: 'carton1', from: 3.50, to: 6.05, zoom: 0, hard: true },
-    { media: 'carton2', from: 23.75, to: 26.5, zoom: 0, hard: true },
-    { media: 'carton3', from: 43.30, to: 45.55, zoom: 0, hard: true },
-    { media: 'carton4', from: 58.45, to: 61.40, zoom: 0, hard: true },
-    { media: 'carton5', from: 75.75, to: 77.90, zoom: 0, hard: true },
+    { media: 'carton1', from: 3.77, to: 6.05, zoom: 0, hard: true },
+    { media: 'carton2', from: 23.93, to: 26.83, zoom: 0, hard: true },
+    { media: 'carton3', from: 43.25, to: 46.07, zoom: 0, hard: true },
+    { media: 'carton4', from: 58.41, to: 61.15, zoom: 0, hard: true },
+    { media: 'carton5', from: 76.03, to: 78.49, zoom: 0, hard: true },
     // photos on the words they illustrate (captions stay on top), slow push, hard cut in and out
-    { media: 'ecole', from: 10.35, to: 11.40, zoom: .06, hard: true },
-    { media: 'travail', from: 11.40, to: 12.75, zoom: .06, hard: true },
-    { media: 'digitalLaptop', from: 28.00, to: 29.50, zoom: .05, hard: true },
-    { media: 'cartes', from: 33.30, to: 34.50, zoom: .06, hard: true },
-    { media: 'ebooks', from: 39.90, to: 41.60, zoom: .05, hard: true },
-    { media: 'luxe', from: 46.00, to: 47.30, zoom: .06, hard: true },
-    { media: 'marketingDigital', from: 65.70, to: 66.90, zoom: .05, hard: true },
-    { media: 'etudes', from: 72.90, to: 74.00, zoom: .06, hard: true },
+    { media: 'ecole', from: 10.84, to: 11.89, zoom: .06, hard: true },
+    { media: 'travail', from: 11.89, to: 13.31, zoom: .06, hard: true },
+    { media: 'digitalLaptop', from: 28.0, to: 29.51, zoom: .05, hard: true },
+    { media: 'cartes', from: 33.09, to: 34.84, zoom: .06, hard: true },
+    { media: 'ebooks', from: 41.01, to: 42.02, zoom: .05, hard: true },
+    { media: 'luxe', from: 46.71, to: 47.83, zoom: .06, hard: true },
+    { media: 'marketingDigital', from: 65.52, to: 66.93, zoom: .05, hard: true },
+    { media: 'etudes', from: 72.32, to: 74.12, zoom: .06, hard: true },
   ],
 
   actors: [],
@@ -71,64 +71,48 @@ window.SPEC = {
 
   music: { mute: true },   // the creator adds a TikTok sound on the app
 
-  // Soft creator-style kit (assets/sfx, generated by the style's generate_soft_pack.py): airy swooshes (a, b, c, short,
-  // down), mouth pops (a, b, c, big), keyboard typing (short, med, long) and a soft click. Swooshes on zooms, cuts,
-  // cards and photos; pops on the key words; typing while a card's words type in and on digital words.
-  // Never the same sound twice in a row. Typing starts on its word (peak: false), the others peak on their moment.
+  // Only the two sounds of the creator references: airy swooshes (a, b, c, short, down) on zooms, cuts, cards and photos,
+  // and mouth pops (a, b, c, big) on the key words. Never the same sound twice in a row.
   sfx: {
     swish: 0, accents: 0,
     files: [
-      { at: 1.25, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
-      { at: 2.2, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
-      { at: 3.5, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -5 },
-      { at: 3.56, src: 'assets/sfx/typing-short.mp3', peak: false, gain: -8 },
-      { at: 4.4, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
+      { at: 1.58, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
+      { at: 2.39, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
+      { at: 3.77, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -5 },
+      { at: 4.89, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
       { at: 6.05, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 9.0, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
-      { at: 10.35, src: 'assets/sfx/click.mp3', peak: true, gain: -5 },
-      { at: 11.4, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 14.2, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -6 },
-      { at: 16.1, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -3 },
-      { at: 17.753, src: 'assets/sfx/click.mp3', peak: true, gain: -6 },
-      { at: 19.2, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
-      { at: 19.27, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -5 },
-      { at: 23.75, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -5 },
-      { at: 23.81, src: 'assets/sfx/typing-long.mp3', peak: false, gain: -8 },
-      { at: 25.31, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
+      { at: 9.51, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
+      { at: 11.89, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
+      { at: 14.73, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -6 },
+      { at: 16.53, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -3 },
+      { at: 19.52, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
+      { at: 19.73, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -5 },
+      { at: 23.93, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -5 },
+      { at: 25.83, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
       { at: 26.602, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 28.0, src: 'assets/sfx/typing-short.mp3', peak: false, gain: -6 },
-      { at: 33.3, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
-      { at: 34.7, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -3 },
-      { at: 38.0, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -6 },
-      { at: 39.9, src: 'assets/sfx/typing-short.mp3', peak: false, gain: -6 },
-      { at: 43.3, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -5 },
-      { at: 43.36, src: 'assets/sfx/typing-short.mp3', peak: false, gain: -8 },
-      { at: 43.71, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
-      { at: 44.11, src: 'assets/sfx/typing-med.mp3', peak: false, gain: -8 },
-      { at: 45.55, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 46.0, src: 'assets/sfx/click.mp3', peak: true, gain: -5 },
-      { at: 46.49, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -4 },
+      { at: 33.09, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
+      { at: 35.06, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -3 },
+      { at: 38.25, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -6 },
+      { at: 43.25, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -5 },
+      { at: 44.11, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
+      { at: 46.07, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
+      { at: 47.15, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -4 },
       { at: 48.286, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 49.3, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
-      { at: 51.37, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -4 },
-      { at: 53.9, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
-      { at: 57.11, src: 'assets/sfx/click.mp3', peak: true, gain: -6 },
-      { at: 58.45, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -5 },
-      { at: 58.53, src: 'assets/sfx/typing-long.mp3', peak: false, gain: -8 },
-      { at: 60.71, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
-      { at: 61.4, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 64.308, src: 'assets/sfx/click.mp3', peak: true, gain: -6 },
-      { at: 65.7, src: 'assets/sfx/typing-med.mp3', peak: false, gain: -6 },
-      { at: 66.93, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -4 },
-      { at: 71.6, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
-      { at: 72.9, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -6 },
-      { at: 74.1, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
-      { at: 75.75, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -5 },
-      { at: 75.8, src: 'assets/sfx/typing-long.mp3', peak: false, gain: -8 },
-      { at: 77.17, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
-      { at: 77.95, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
-      { at: 78.9, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -6 },
-      { at: 79.0, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -4 },
+      { at: 49.56, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -6 },
+      { at: 51.81, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -4 },
+      { at: 53.88, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
+      { at: 58.41, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -5 },
+      { at: 60.63, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
+      { at: 61.15, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
+      { at: 67.03, src: 'assets/sfx/pop-a.mp3', peak: true, gain: -4 },
+      { at: 70.81, src: 'assets/sfx/pop-b.mp3', peak: true, gain: -3 },
+      { at: 72.32, src: 'assets/sfx/swoosh-a.mp3', peak: true, gain: -6 },
+      { at: 74.26, src: 'assets/sfx/swoosh-down.mp3', peak: true, gain: -6 },
+      { at: 76.03, src: 'assets/sfx/swoosh-b.mp3', peak: true, gain: -5 },
+      { at: 77.97, src: 'assets/sfx/pop-big.mp3', peak: true, gain: -3 },
+      { at: 78.53, src: 'assets/sfx/swoosh-short.mp3', peak: true, gain: -6 },
+      { at: 79.39, src: 'assets/sfx/swoosh-c.mp3', peak: true, gain: -6 },
+      { at: 79.73, src: 'assets/sfx/pop-c.mp3', peak: true, gain: -4 },
     ],
   },
   // voiceFilter: dynaudnorm lifts the words said softly ("bien évidemment") to the level of the rest
@@ -141,8 +125,8 @@ window.SPEC = {
     serif: ['réfléchir', 'accompagnement', 'prochaine'], // Instrument Serif italic with a white glow
     // caption position follows the sentence mode: up top on WIDE sentences, on the chest on TIGHT ones.
     // TikTok safe box: y 220 to 1400 (the chest line sits at 1340 + 300 px per 1x of zoom, so 1400 at zoom 1.2).
-    yKeys: [[0, 1340], [6.05, 520], [17.753, 520], [21.0, 1340], [26.602, 520], [31.8, 1340], [35.6, 520],
-            [43.17, 1340], [48.286, 520], [50.3, 1340], [57.11, 520], [61.4, 1340], [64.308, 520], [67.65, 1340], [77.95, 1340]],
-    hide: [[65.70, 66.90], [3.50, 6.05], [23.75, 26.5], [43.30, 45.55], [58.45, 61.40], [75.75, 77.90]],
+    yKeys: [[0.0, 1340], [6.05, 520], [17.753, 520], [21.48, 1340], [26.602, 520], [31.82, 1340], [35.62, 520],
+            [43.17, 1340], [48.286, 520], [50.53, 1340], [57.11, 520], [61.15, 1340], [64.308, 520], [67.68, 1340], [78.53, 1340]],
+    hide: [[65.52, 66.93], [3.77, 6.05], [23.93, 26.83], [43.25, 46.07], [58.41, 61.15], [76.03, 78.49]],
   },
 };

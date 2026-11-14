@@ -61,10 +61,15 @@ function toWords(json) {
   for (const seg of json.transcription || []) for (const t of seg.tokens || []) {
     const text = t.text || '';
     if (!text.trim() || /^\[_.*_\]$/.test(text.trim()) || /^\[.*\]$/.test(text.trim())) continue;
-    const from = t.offsets.from / 1000, to = t.offsets.to / 1000, last = words.at(-1);
-    if (last && !/^\s/.test(text)) { last.text += text; last.end = Math.max(last.end, to); continue; }
-    words.push({ text: text.trim(), start: from, end: Math.max(to, from + .02) });
+    // with DTW (t_dtw >= 0) a word starts at its aligned time (minus 50 ms of attack): token offsets drift up to 1 s
+    const dtw = t.t_dtw >= 0 ? Math.max(0, t.t_dtw / 100 - .05) : null;
+    const from = dtw ?? t.offsets.from / 1000, to = dtw != null ? from + .2 : t.offsets.to / 1000, last = words.at(-1);
+    if (last && (!/^\s/.test(text) || !/[\p{L}\p{N}]/u.test(text))) { last.text += text.trim() ? text.replace(/^\s+/, ' ').replace(/^ ([?!:;»])/, ' $1') : ''; if (dtw == null) last.end = Math.max(last.end, to); continue; }
+    words.push({ text: text.trim(), start: from, end: Math.max(to, from + .02), dtw: dtw != null });
   }
+  // DTW words end where the next one starts (at most 0.8 s later)
+  for (let i = 0; i < words.length; i++) if (words[i].dtw) words[i].end = Math.min(words[i + 1]?.start ?? words[i].start + .4, words[i].start + .8);
+  for (const w of words) delete w.dtw;
   // keep the timeline monotonic: a word never starts before the previous one ends
   for (let i = 1; i < words.length; i++) if (words[i].start < words[i - 1].end) words[i].start = Math.min(words[i - 1].end, words[i].end - .02);
   return words.filter(w => w.text);
@@ -91,7 +96,11 @@ export async function whisperWords(PROJ, lang, wav, log = console.log) {
   if (r.status) throw new Error(`ffmpeg could not read ${wav}: ${String(r.stderr).slice(-300)}`);
   log(`whisper: transcribing on this computer (${path.basename(model)}, about real time)`);
   const threads = String(Math.max(2, Math.min(8, os.cpus().length)));
-  r = spawnSync(cli, ['-m', model, '-f', w16, '-l', lang || 'auto', '-t', threads, '-ojf', '-of', path.join(tmp, 'out'), '-np',
+  // DTW token alignment (needs flash attention off): word starts land on the voice instead of drifting
+  const name = path.basename(model), preset = /large-v3-turbo/.test(name) ? 'large.v3.turbo' : /large-v3/.test(name) ? 'large.v3'
+    : /large-v2/.test(name) ? 'large.v2' : /large-v1/.test(name) ? 'large.v1' : (name.match(/ggml-(tiny|base|small|medium)(\.en)?\b/) || []).slice(1).join('') || null;
+  const DTW = preset && process.env.WHISPER_DTW !== '0' ? ['--dtw', preset, '-nfa'] : [];
+  r = spawnSync(cli, ['-m', model, '-f', w16, '-l', lang || 'auto', '-t', threads, '-ojf', '-of', path.join(tmp, 'out'), '-np', ...DTW,
     ...(VERBATIM[lang] ? ['--prompt', VERBATIM[lang]] : [])],
     { encoding: 'utf8', maxBuffer: 1 << 28 });
   if (r.status) throw new Error(`whisper-cli failed (${r.status}): ${(r.stderr || '').slice(-400)}`);
