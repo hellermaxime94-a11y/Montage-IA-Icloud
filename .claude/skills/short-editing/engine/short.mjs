@@ -178,8 +178,9 @@ function tighten(spec) {
   // words inside a spec.cut never reach the captions. A word the micro-silence cutter swallowed (Scribe gave a fast
   // "je", "me", "que" a sliver in a quiet run, the real voice sits next to its neighbour) folds into that neighbour.
   const mid = w => (w.start + w.end) / 2;
-  const kept = w => K.some(([a, b]) => mid(w) >= a && mid(w) <= b);
-  const userCut = w => (spec.cut || []).some(([a, b]) => mid(w) >= a && mid(w) <= b);
+  const kept = w => K.some(([a, b]) => Math.min(mid(w), w.start + .12) >= a && Math.min(mid(w), w.start + .12) <= b);
+  // a word is cut only when it STARTS inside a spec.cut (its end can be a loose guess that runs into the pause)
+  const userCut = w => (spec.cut || []).some(([a, b]) => w.start + .02 >= a && w.start + .02 <= b);
   const ws = [];
   let carry = '';
   for (const w of words) {

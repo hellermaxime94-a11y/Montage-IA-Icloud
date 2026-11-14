@@ -68,7 +68,8 @@ function toWords(json) {
     words.push({ text: text.trim(), start: from, end: Math.max(to, from + .02), dtw: dtw != null });
   }
   // DTW words end where the next one starts (at most 0.8 s later)
-  for (let i = 0; i < words.length; i++) if (words[i].dtw) words[i].end = Math.min(words[i + 1]?.start ?? words[i].start + .4, words[i].start + .8);
+  // (at most 0.5 s: a longer guess runs into the next pause, and a word whose middle lands in a cut pause is dropped)
+  for (let i = 0; i < words.length; i++) if (words[i].dtw) words[i].end = Math.min(words[i + 1]?.start ?? words[i].start + .4, words[i].start + .5);
   for (const w of words) delete w.dtw;
   // keep the timeline monotonic: a word never starts before the previous one ends
   for (let i = 1; i < words.length; i++) if (words[i].start < words[i - 1].end) words[i].start = Math.min(words[i - 1].end, words[i].end - .02);

@@ -25,6 +25,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 4.07 | 3.57 | moi, |
 | 4.31 | 3.81 | tu |
 | 4.49 | 3.99 | dois |
+| 4.89 | 4.39 | investir. |
 | 6.11 | 4.91 | Réfléchis |
 | 6.61 | 5.41 | deux |
 | 6.85 | 5.65 | secondes. |
@@ -88,6 +89,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 25.05 | 23.18 | aussi |
 | 25.43 | 23.56 | obligé |
 | 25.61 | 23.74 | de |
+| 25.83 | 23.96 | payer. |
 | 26.91 | 24.51 | Alors, |
 | 27.19 | 24.79 | pourquoi |
 | 27.35 | 24.95 | quand |
@@ -138,6 +140,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 41.47 | 39.07 | que |
 | 41.59 | 39.19 | tu |
 | 41.75 | 39.35 | souhaites |
+| 42.03 | 39.63 | acheter. |
 | 43.33 | 40.13 | Parce |
 | 43.43 | 40.23 | qu'investir |
 | 44.11 | 40.91 | intelligemment, |
@@ -153,6 +156,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 47.15 | 43.95 | riche |
 | 47.35 | 44.15 | sans |
 | 47.51 | 44.31 | rien |
+| 47.77 | 44.57 | faire. |
 | 48.43 | 44.86 | C'est |
 | 48.91 | 45.34 | investir |
 | 49.21 | 45.64 | dans |
@@ -194,6 +198,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 62.25 | 58.02 | en |
 | 62.41 | 58.18 | tes |
 | 62.71 | 58.48 | futurs |
+| 63.15 | 58.92 | savoirs. |
 | 64.55 | 59.42 | Personnellement, |
 | 64.91 | 59.78 | je |
 | 64.99 | 59.86 | me |
