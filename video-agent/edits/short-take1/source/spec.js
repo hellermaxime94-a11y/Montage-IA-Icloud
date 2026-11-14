@@ -61,7 +61,7 @@ window.SPEC = {
     { media: 'digitalLaptop', from: 28.0, to: 29.51, zoom: .05, hard: true },
     { media: 'cartes', from: 33.09, to: 34.84, zoom: .06, hard: true },
     { media: 'ebooks', from: 41.01, to: 42.02, zoom: .05, hard: true },
-    { media: 'luxe', from: 46.71, to: 47.83, zoom: .06, hard: true },
+    { media: 'luxe', from: 46.71, to: 47.944, zoom: .06, hard: true },
     { media: 'marketingDigital', from: 65.52, to: 66.93, zoom: .05, hard: true },
     { media: 'etudes', from: 72.32, to: 74.12, zoom: .06, hard: true },
   ],
@@ -126,7 +126,7 @@ window.SPEC = {
     // caption position follows the sentence mode: up top on WIDE sentences, on the chest on TIGHT ones.
     // TikTok safe box: y 220 to 1400 (the chest line sits at 1340 + 300 px per 1x of zoom, so 1400 at zoom 1.2).
     yKeys: [[0.0, 1340], [6.05, 520], [17.753, 520], [21.48, 1340], [26.602, 520], [31.82, 1340], [35.62, 520],
-            [43.17, 1340], [48.286, 520], [50.53, 1340], [57.11, 520], [61.15, 1340], [64.308, 520], [67.68, 1340], [78.53, 1340]],
+            [43.17, 1340], [48.41, 520], [50.53, 1340], [57.11, 520], [61.15, 1340], [64.308, 520], [67.68, 1340], [78.53, 1340]],
     hide: [[65.52, 66.93], [3.77, 6.05], [23.93, 26.83], [43.25, 46.07], [58.41, 61.15], [76.03, 78.49]],
   },
 };

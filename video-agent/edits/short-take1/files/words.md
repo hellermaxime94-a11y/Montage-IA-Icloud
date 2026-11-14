@@ -156,7 +156,7 @@ Short duration: 75.03s (source 81.133s, 9 keeps)
 | 47.15 | 43.95 | riche |
 | 47.35 | 44.15 | sans |
 | 47.51 | 44.31 | rien |
-| 47.77 | 44.57 | faire. |
+| 47.57 | 44.37 | faire. |
 | 48.43 | 44.86 | C'est |
 | 48.91 | 45.34 | investir |
 | 49.21 | 45.64 | dans |
